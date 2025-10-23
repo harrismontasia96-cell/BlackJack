@@ -18,22 +18,31 @@ public class Card {
             return  "#";
         }
     }
-    public String getValue(){
+    public String getValue() {
 
-        if(isFaceUp){
+        if (isFaceUp) {
 
             return value;
         } else {
             return "#";
         }
+
+
     }
     public int getPointValue() {
 
         if (isFaceUp) {
 
-            return 1;
+            if(this.value.equals("A")){
+                return 11;
+            }else if(this.value.equals("k")){
+                return 10;
+            }else{
+                return Integer.parseInt(this.value);
+            }
+
         } else {
-            return "0";
+            return 0;
         }
     }
     public boolean isFaceUp(){

@@ -3,17 +3,21 @@ package com.pluralsight;
 import java.util.ArrayList;
 
 public class Hand {
+
     private ArrayList<Card> cards;
 
     public Hand(){
         cards = new ArrayList<>();
+
+    }
+    public void addCard(Card card) {
+        cards.add(card);
     }
 
     public void deal(Card card){
         cards.add(card);
-    }
-    public int getSize(){
-        return cards.size();
+
+
     }
 
     public int getValue(){
