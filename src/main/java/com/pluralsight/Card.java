@@ -1,57 +1,36 @@
 package com.pluralsight;
 
 public class Card {
-
     private String suit, value;
     private boolean isFaceUp;
 
     public Card(String suit, String value) {
         this.suit = suit;
         this.value = value;
-        this.isFaceUp = false;
+        this.isFaceUp = true;
     }
-    public String getSuit(){
+    public String getSuit() {
+        return suit;
+    }
 
-        if(isFaceUp){
-            return suit;
-        } else {
-            return  "#";
-        }
-    }
     public String getValue() {
-
-        if (isFaceUp) {
-
-            return value;
-        } else {
-            return "#";
-        }
-
-
+        return value;
     }
     public int getPointValue() {
-
-        if (isFaceUp) {
-
-            if(this.value.equals("A")){
-                return 11;
-            }else if(this.value.equals("k")){
+        switch (value) {
+            case "J":
+            case "Q":
+            case "K":
                 return 10;
-            }else{
-                return Integer.parseInt(this.value);
-            }
-
-        } else {
-            return 0;
+            case "A":
+                return 11;
+            default:
+                return Integer.parseInt(value);
         }
     }
-    public boolean isFaceUp(){
-        return isFaceUp;
-    }
-    public void flip(){
-        isFaceUp = !isFaceUp;
+
+    @Override
+    public String toString() {
+        return value + " of " + suit;
     }
 }
-
-
-
